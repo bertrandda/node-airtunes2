@@ -1,5 +1,5 @@
 {
-  "name": "airtunes2",
+  "name": "node-airtunes2",
   "description": "an AirTunes v2 implementation: stream wirelessly to audio devices.",
   "keywords": [
     "airtunes",
@@ -16,7 +16,7 @@
   "bin": "./examples/play_stdin.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ciderapp/node_airtunes2.git"
+    "url": "https://github.com/bertrandda/node_airtunes2.git"
   },
   "scripts": {
     "build": "run-script-os",
