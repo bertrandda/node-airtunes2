@@ -1,9 +1,7 @@
 const os = require("os");
 var events = require("events");
 const util = require("util");
-const { resolve } = require("path");
 const CiderReceiver = require("./castreceiver");
-const DefaultMediaReceiver = require("castv2-client").DefaultMediaReceiver;
 
 function Chromecast() {
   this.castDevices = [];

@@ -14,7 +14,6 @@ var AirTunes = require('../lib'),
       .default('forceAlac', false)
       .demand(['host'])
       .argv;
-const fetch = require('electron-fetch').default
 console.log('adding device: ' + argv.host + ':' + argv.port);
 var airtunes = new AirTunes();
 argv.txt = [

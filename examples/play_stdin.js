@@ -1,6 +1,5 @@
-const {Worker} = require("worker_threads");
+const { Worker } = require("worker_threads");
 var ab2str = require('arraybuffer-to-string')
-const fetch2 = require('electron-fetch').default
 const mdns = require("mdns-js");
 const os = require("os");
 var AirTunes = require('../lib/');

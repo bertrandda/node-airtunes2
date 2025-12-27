@@ -1,4 +1,4 @@
-const {Worker, isMainThread, parentPort, workerData} = require('node:worker_threads');
+const { parentPort } = require('node:worker_threads');
 try{
 var { WebSocketServer } = require('ws');
 const wss = new WebSocketServer({ port: 8980 });
