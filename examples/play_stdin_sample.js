@@ -1,7 +1,8 @@
 const { Worker } = require('worker_threads')
-var ab2str = require('arraybuffer-to-string')
+const ab2str = require('arraybuffer-to-string')
 const mdns = require('mdns-js')
-var AirTunes = require('../lib/')
+const AirTunes = require('../lib/')
+
 var castDevices = []
 
 process.env.UV_THREADPOOL_SIZE = 6
@@ -65,11 +66,11 @@ var func = `
         });
         parentPort.on("message", data => {
           ws.send(data);
-        });  
+        });
       });`
 var worker = new Worker(func, { eval: true })
 worker.on('message', (result) => {
-  parsed_data = JSON.parse(ab2str(result.message))
+  const parsed_data = JSON.parse(ab2str(result.message))
   if (parsed_data.type == 'scanDevices') {
     // Sample data for scanning available devices:
     // '{"type":"scanDevices",

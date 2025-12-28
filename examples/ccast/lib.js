@@ -147,7 +147,6 @@ Chromecast.prototype.stream = function (device, song, artist, album, albumart) {
   castMode = device.type ?? ''
   UPNPDesc = device.location ?? ''
 
-  let client
   if (castMode === 'googlecast') {
     let client = new this.audioClient()
     client.stop
@@ -249,10 +248,7 @@ Chromecast.prototype.setTrackInfo = function (
   album,
   artworkURL = null,
 ) {
-  if (this.metadata.name == song && this.metadata.artistName == artist && this.metadata.albumName == album && (this.metadata.albumart == artworkURL || artworkURL == null)) {
-
-  }
-  else {
+  if (!(this.metadata.name == song && this.metadata.artistName == artist && this.metadata.albumName == album && (this.metadata.albumart == artworkURL || artworkURL == null))) {
     this.metadata = {
       name: song ?? '',
       artistName: artist ?? '',
@@ -261,7 +257,7 @@ Chromecast.prototype.setTrackInfo = function (
     }
     console.log('setTrackInfoInt', this.metadata)
     if (host == 'all') {
-      for (const [key, value] of Object.entries(this.activeConnections)) {
+      for (const [, value] of Object.entries(this.activeConnections)) {
         value.session.setMetadata(
           song,
           artist,
@@ -288,7 +284,7 @@ Chromecast.prototype.setArtwork = function (host, artworkURL) {
     console.log('setArtworkInt', this.metadata)
     this.metadata.albumart = artworkURL
     if (host == 'all') {
-      for (const [key, value] of Object.entries(this.activeConnections)) {
+      for (const [, value] of Object.entries(this.activeConnections)) {
         value.session.setMetadata(
           '', ' ', '', '',
         )
@@ -317,7 +313,7 @@ Chromecast.prototype.setArtwork = function (host, artworkURL) {
 }
 
 Chromecast.prototype.stopAll = function () {
-  for (const [key, value] of Object.entries(this.activeConnections)) {
+  for (const [, value] of Object.entries(this.activeConnections)) {
     value.session.kill()
   }
 

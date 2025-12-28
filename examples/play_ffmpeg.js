@@ -1,17 +1,17 @@
-var AirTunes = require('../lib/'),
-  spawn = require('child_process').spawn,
-  argv = require('optimist')
-    .usage('Usage: $0 --host [host] --port [num] --ffmpeg [path] --file [path] --volume [num] --password [string] --mode [mode] --airplay2 [1/0] --debug [mode] --ft [featuresHexes] --sf [statusFlags] --et [encryptionTypes] --cn [audioCodecs]')
-    .default('port', 5002)
-    .default('volume', 50)
-    .default('ffmpeg', 'E:\\ffmpeg-20180122-2e96f52-win64-shared\\bin\\ffmpeg.exe')
-    .default('file', './wakeup.mp3')
-    .default('ft', '0x7F8AD0,0x38BCF46')
-    .default('sf', '0x98404')
-    .default('cn', '0,1,2,3')
-    .default('et', '0,3,5')
-    .demand(['host'])
-    .argv
+const AirTunes = require('../lib/')
+const { spawn } = require('child_process')
+const argv = require('optimist')
+  .usage('Usage: $0 --host [host] --port [num] --ffmpeg [path] --file [path] --volume [num] --password [string] --mode [mode] --airplay2 [1/0] --debug [mode] --ft [featuresHexes] --sf [statusFlags] --et [encryptionTypes] --cn [audioCodecs]')
+  .default('port', 5002)
+  .default('volume', 50)
+  .default('ffmpeg', 'E:\\ffmpeg-20180122-2e96f52-win64-shared\\bin\\ffmpeg.exe')
+  .default('file', './wakeup.mp3')
+  .default('ft', '0x7F8AD0,0x38BCF46')
+  .default('sf', '0x98404')
+  .default('cn', '0,1,2,3')
+  .default('et', '0,3,5')
+  .demand(['host'])
+  .argv
 
 console.log('adding device: ' + argv.host + ':' + argv.port)
 var airtunes = new AirTunes()

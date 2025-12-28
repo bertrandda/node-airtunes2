@@ -1,8 +1,7 @@
-var AirTunes = require('../lib/'),
-  lame = require('lame'),
-  request = require('request')
-spawn = require('child_process').spawn,
-argv = require('optimist')
+const AirTunes = require('../lib/')
+const lame = require('lame')
+const request = require('request')
+const argv = require('optimist')
   .usage('Usage: $0 --host [host] --port [num] --file [path] --volume [num]')
   .default('port', 5002)
   .default('volume', 50)
@@ -43,7 +42,7 @@ device.on('status', function (status) {
 
   request(argv.file)
     .pipe(new lame.Decoder())
-  //    .on('format', console.log)
+    //    .on('format', console.log)
     .pipe(airtunes)
 })
 

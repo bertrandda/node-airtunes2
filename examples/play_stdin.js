@@ -16,7 +16,6 @@ process.env.UV_THREADPOOL_SIZE = 6
 
 var airtunes = new AirTunes()
 var chromecast = new Chromecast()
-var browser_on = false
 
 var browser = null
 var browser2 = null
@@ -89,7 +88,7 @@ chromecast.on('device', function (key, status, desc) {
 
 const worker = new Worker(join(__dirname, 'play_stdin_worker.js'))
 worker.on('message', (result) => {
-  parsed_data = JSON.parse(ab2str(result.message))
+  const parsed_data = JSON.parse(ab2str(result.message))
   if (parsed_data.type == 'scanDevices') {
     // Sample data for scanning available devices:
     // '{"type":"scanDevices",
