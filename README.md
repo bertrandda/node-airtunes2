@@ -1,6 +1,15 @@
 node-airtunes2 - a node.js implementation of AirTunes v2 (AirPlay 1) / AirPlay 2
 =======================================================
 
+> This is a fork to handle last NodeJS versions, main work have been made in these repositories:
+> - [ciderapp/node_airtunes2](https://github.com/ciderapp/node_airtunes2)
+> - [xuan25/node_airtunes2](https://github.com/xuan25/node_airtunes2)
+> - [mcfisto/node_airtunes2](https://github.com/mcfisto/node_airtunes2)
+> - [microadam/node_airtunes](https://github.com/microadam/node_airtunes)
+> - [openairplay/node_airtunes](https://github.com/openairplay/node_airtunes)
+>
+> Project needs code improvement, which will be done over time.
+
 **AirPlay Audio client for Windows, Mac and Linux**
 
 Port with modern devices pairing
@@ -11,7 +20,7 @@ Tested on Apple TV HD 5th gen / HomePod mini (with/without passcode, tvOS 15.4.1
 Installation
 
 <pre>
-  npm install airtunes2
+  npm install node-airtunes2
 </pre>
 
 The example folder contains several test scripts:
