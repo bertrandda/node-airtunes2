@@ -61,6 +61,8 @@
     "async": "^3.2.5",
     "axlsign": "ciderapp/curve25519-js",
     "big-integer": "^1.6.52",
+    "bplist-creator": "^0.1.1",
+    "bplist-parser": "^0.3.2",
     "castv2-client": "^1.2.0",
     "chacha-js": "ciderapp/chacha20poly1305",
     "curve25519-js": "^0.0.4",
