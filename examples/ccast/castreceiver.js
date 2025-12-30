@@ -1,8 +1,8 @@
 // @ts-nocheck
-var util = require('util')
-var Application = require('castv2-client').Application
-var MediaController = require('castv2-client').MediaController
-var CiderCastController = require('./castcontroller')
+const util = require('util')
+const { Application } = require('castv2-client')
+const { MediaController } = require('castv2-client')
+const CiderCastController = require('./castcontroller')
 
 function CiderReceiver(client, session) {
   Application.apply(this, arguments)

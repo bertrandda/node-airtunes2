@@ -1,15 +1,16 @@
 const { Worker } = require('worker_threads')
-var ab2str = require('arraybuffer-to-string')
+const ab2str = require('arraybuffer-to-string')
 const mdns = require('mdns-js')
 const os = require('os')
-var AirTunes = require('../lib/')
-var castDevices = []
 const { join } = require('path')
 const { Stream } = require('stream')
-var NicerCast = require('nicercast')
-var audioStream = new Stream.PassThrough()
+const NicerCast = require('nicercast')
 const getPortSync = require('get-port-sync')
-const Chromecast = require('./ccast/lib.js')
+const AirTunes = require('../lib/')
+const Chromecast = require('./ccast/lib')
+
+const castDevices = []
+const audioStream = new Stream.PassThrough()
 
 // console.log(await getPort());
 process.env.UV_THREADPOOL_SIZE = 6
@@ -86,14 +87,14 @@ chromecast.on('device', function (key, status, desc) {
   console.log('deviceStatus', key, status, desc)
 })
 
-const worker = new Worker(join(__dirname, 'play_stdin_worker.js'))
+const worker = new Worker(join(__dirname, 'play_stdin_worker'))
 worker.on('message', (result) => {
   const parsed_data = JSON.parse(ab2str(result.message))
   if (parsed_data.type == 'scanDevices') {
     // Sample data for scanning available devices:
     // '{"type":"scanDevices",
     // "timeout": 3000}
-    castDevices = []
+    castDevices.length = 0
     try {
       browser.stop()
       browser2.stop()

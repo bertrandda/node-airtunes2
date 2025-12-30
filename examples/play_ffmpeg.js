@@ -1,4 +1,3 @@
-const AirTunes = require('../lib/')
 const { spawn } = require('child_process')
 const argv = require('optimist')
   .usage('Usage: $0 --host [host] --port [num] --ffmpeg [path] --file [path] --volume [num] --password [string] --mode [mode] --airplay2 [1/0] --debug [mode] --ft [featuresHexes] --sf [statusFlags] --et [encryptionTypes] --cn [audioCodecs]')
@@ -12,6 +11,7 @@ const argv = require('optimist')
   .default('et', '0,3,5')
   .demand(['host'])
   .argv
+const AirTunes = require('../lib/')
 
 console.log('adding device: ' + argv.host + ':' + argv.port)
 var airtunes = new AirTunes()
