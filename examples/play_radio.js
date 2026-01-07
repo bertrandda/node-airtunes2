@@ -1,22 +1,23 @@
 // node 'c:\Github data\node_airtunes2\examples\play_radio.js'--host 192.168.0.194 --port 40399 --password 9519 --airplay2 1 --debug true --mode 1
-var AirTunes = require('../lib/'),
-  spawn = require('child_process').spawn,
-  argv = require('optimist')
-    .usage('Usage: $0 --host [host] --port [num] --ffmpeg [path] --file [path] --volume [num] --password [string] --mode [mode] --airplay2 [1/0] --debug [mode] --ft [featuresHexes] --sf [statusFlags] --et [encryptionTypes] --cn [audioCodecs]')
-    .default('port', 5002)
-    .default('volume', 10)
-    .default('ffmpeg', 'ffmpeg')
-    .default('file', 'http://radio.plaza.one/mp3_low')
-    .default('ft', '0x7F8AD0,0x38BCF46')
-    .default('sf', '0x98404')
-    .default('cn', '0,1,2,3')
-    .default('et', '0,3,5')
-    .default('forceAlac', false)
-    .demand(['host'])
-    .argv
+const spawn = require('child_process').spawn
+const argv = require('optimist')
+  .usage('Usage: $0 --host [host] --port [num] --ffmpeg [path] --file [path] --volume [num] --password [string] --mode [mode] --airplay2 [1/0] --debug [mode] --ft [featuresHexes] --sf [statusFlags] --et [encryptionTypes] --cn [audioCodecs]')
+  .default('port', 5002)
+  .default('volume', 10)
+  .default('ffmpeg', 'ffmpeg')
+  .default('file', 'http://radio.plaza.one/mp3_low')
+  .default('ft', '0x7F8AD0,0x38BCF46')
+  .default('sf', '0x98404')
+  .default('cn', '0,1,2,3')
+  .default('et', '0,3,5')
+  .default('forceAlac', false)
+  .demand(['host'])
+  .argv
 const fetch = require('electron-fetch').default
+const AirTunes = require('../lib/')
+
 console.log('adding device: ' + argv.host + ':' + argv.port)
-var airtunes = new AirTunes()
+const airtunes = new AirTunes()
 // argv.txt = [
 //   `cn=${argv.cn}`,
 //   'da=true',

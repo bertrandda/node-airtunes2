@@ -1,5 +1,5 @@
 const os = require('os')
-var events = require('events')
+const events = require('events')
 const util = require('util')
 const CiderReceiver = require('./castreceiver')
 

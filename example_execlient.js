@@ -1,8 +1,8 @@
-var spawn = require('child_process').spawn
-var airtunes = spawn('airtunes2.exe')
+const spawn = require('child_process').spawn
+const airtunes = spawn('airtunes2.exe')
 const fetch = require('electron-fetch').default
-var { WebSocket } = require('ws')
-var ffmpeg = spawn('C:\\ffmpeg\\bin\\ffmpeg.exe', [
+const { WebSocket } = require('ws')
+const ffmpeg = spawn('C:\\ffmpeg\\bin\\ffmpeg.exe', [
   '-i', 'http://radio.plaza.one/mp3_low',
   '-acodec', 'pcm_s16le',
   '-f', 's16le', // PCM 16bits, little-endian

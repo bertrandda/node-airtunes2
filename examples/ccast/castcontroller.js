@@ -1,6 +1,5 @@
-var util = require('util')
-var castv2Cli = require('castv2-client')
-var RequestResponseController = castv2Cli.RequestResponseController
+const util = require('util')
+const { RequestResponseController } = require('castv2-client')
 
 function CiderCastController(client, sourceId, destinationId) {
   RequestResponseController.call(this, client, sourceId, destinationId, 'urn:x-cast:com.ciderapp.customdata')

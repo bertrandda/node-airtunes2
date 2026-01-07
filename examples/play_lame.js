@@ -1,4 +1,3 @@
-const AirTunes = require('../lib/')
 const lame = require('lame')
 const request = require('request')
 const argv = require('optimist')
@@ -8,6 +7,7 @@ const argv = require('optimist')
   .default('file', 'https://data33.chiasenhac.com/downloads/1991/2/1990739-ac226c05/128/Head%20In%20The%20Clouds%20-%2088rising_%20Joji.mp3')
   .demand(['host'])
   .argv
+const AirTunes = require('../lib/')
 
 console.log('adding device: ' + argv.host + ':' + argv.port + ' ALL=%j', argv)
 var airtunes = new AirTunes()

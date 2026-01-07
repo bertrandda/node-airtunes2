@@ -1,5 +1,4 @@
 // node 'c:\Github data\node_airtunes2\examples\play_radio.js'--host 192.168.0.194 --port 40399 --password 9519 --airplay2 1 --debug true --mode 1
-const AirTunes = require('../lib')
 const argv = require('optimist')
   .usage('Usage: $0 --host [host] --port [num] --ffmpeg [path] --file [path] --volume [num] --password [string] --mode [mode] --airplay2 [1/0] --debug [mode] --ft [featuresHexes] --sf [statusFlags] --et [encryptionTypes] --cn [audioCodecs]')
   .default('port', 5002)
@@ -13,6 +12,7 @@ const argv = require('optimist')
   .default('forceAlac', false)
   .demand(['host'])
   .argv
+const AirTunes = require('../lib')
 
 console.log('adding device: ' + argv.host + ':' + argv.port)
 const airtunes = new AirTunes()
@@ -81,9 +81,9 @@ device.on('status', function (status) {
     return
 
   if (status == 'ready') {
-    var fs = require('fs')
+    const fs = require('fs')
 
-    var data = fs.readFileSync('F:\\node_airtunes2_cider\\examples\\mirrors.raw')
+    const data = fs.readFileSync('F:\\node_airtunes2_cider\\examples\\mirrors.raw')
     airtunes.circularBuffer.write(data)
   }
 })
