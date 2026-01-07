@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "*.ejs": "html",
-        "algorithm": "cpp",
-        "limits": "cpp",
-        "xiosbase": "cpp",
-        "xlocale": "cpp"
-    }
-}
